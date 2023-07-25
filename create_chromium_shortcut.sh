@@ -11,12 +11,19 @@ fi
 
 # Desktop shortcut filename and path
 SHORTCUT_FILENAME="chromium-browser.desktop"
-DESKTOP_PATH="~/Desktop/$SHORTCUT_FILENAME"
+SHORTCUT_PATH="~/Desktop/$SHORTCUT_FILENAME"
 
-mkdir ~/Desktop
+DESKTOP_PATH=~/Desktop
+
+if [ ! -d "$DESKTOP_PATH" ]; then
+    mkdir -p "$DESKTOP_PATH"
+    echo "Desktop directory created."
+else
+    echo "Desktop directory already exists."
+fi
 
 # Create the desktop shortcut file
-cat <<EOF > "$DESKTOP_PATH"
+cat <<EOF > "$SHORTCUT_PATH"
 [Desktop Entry]
 Name=Chromium Browser
 Comment=Open the Chromium web browser
@@ -30,6 +37,6 @@ MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xm
 EOF
 
 # Make the shortcut file executable
-chmod +x "$DESKTOP_PATH"
+chmod +x "$SHORTCUT_PATH"
 
-echo "Chromium Browser desktop shortcut created at: $DESKTOP_PATH"
+echo "Chromium Browser desktop shortcut created at: $SHORTCUT_PATH"
