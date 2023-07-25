@@ -1,13 +1,16 @@
 #!/bin/bash
 
 # Ubuntu 22.04 is required to run the script
+# GPU availability is required to run the script
+
+cd $HOME
 
 sudo apt update && sudo apt upgrade -y
 # install desktop environment Xfce
-sudo apt-get install xfce4-session xfce4-goodies
-sudo apt install xinit
+sudo apt-get install -y xfce4-session xfce4-goodies
+sudo apt install -y xinit
 # install Chromium
-sudo apt-get install chromium-browser
+sudo apt-get install -y chromium-browser
 which chromium-browser
 bash create_chromium_shortcut.sh
 
@@ -38,11 +41,14 @@ python -m pip install --upgrade pip
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
 sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
+sudo dpkg -i -y cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
 sudo cp /var/cuda-repo-ubuntu2204-12-2-local/cuda-*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt-get -y install cuda
 rm cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
+
+# setup auto shutdown in 15 min
+bash auto_shutdown.sh
 
 # download Automatic1111 (Stable Diffusion Web UI)
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
@@ -54,7 +60,7 @@ cd ./stable-diffusion-webui/models/Stable-diffusion
 sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt
 # download Stable Diffusion ema model. Ema is required if you are going to continue training SD:
 sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4-full-ema.ckpt
-# install Reliberate model
+# download Reliberate model
 sudo wget 'https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16'
 
 cd ../../
