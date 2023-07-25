@@ -3,27 +3,20 @@
 # Ubuntu 22.04 is required to run the script
 # GPU availability is required to run the script
 
-cd $HOME
+cd ~/sd-training-base-scripts
 
 sudo apt update && sudo apt upgrade -y
-# install desktop environment Xfce
+# install desktop environment Xfce, requires user interaction
 sudo apt-get install -y xfce4-session xfce4-goodies
 sudo apt install -y xinit
 # install Chromium
 sudo apt-get install -y chromium-browser
 which chromium-browser
 bash create_chromium_shortcut.sh
-
 # install Google Remote Desktop
 sudo wget dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-sudo apt install ./chrome-remote-desktop_current_amd64.deb -y
-# ...requires user interaction at "https://remotedesktop.google.com/headless" 
-# make connection from user device to VM (next command will contain different arguments specifically to user google account!):
-DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AZEOvhWg9FM99f-yX7OkXnMXQ4FZK2n6lsi3NecP4Vfm28CC8PKljYBDiSeXtbOa2cNfjQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)
-# write connection pincode and repeat it
-545467
-545467
-
+sudo apt install ~/chrome-remote-desktop_current_amd64.deb -y
+sudo rm chrome-remote-desktop_current_amd64.deb
 # install Miniconda3
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
@@ -31,6 +24,8 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ~/miniconda3/bin/conda init bash
 ~/miniconda3/bin/conda init zsh
+
+source ~/miniconda3/bin/activate
 
 conda create -n sd python=3.10.6 -y
 conda activate sd
@@ -47,23 +42,23 @@ sudo apt-get update
 sudo apt-get -y install cuda
 rm cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
 
-# setup auto shutdown in 15 min
-bash auto_shutdown.sh
-
 # download Automatic1111 (Stable Diffusion Web UI)
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
-cp ./run_automatic1111.sh $HOME/Desktop/
+ln -s ~/sd-training-base-scripts/run_automatic1111.sh $HOME/Desktop/Automatic1111.sh
 
-cd ./stable-diffusion-webui/models/Stable-diffusion
+cd ~/stable-diffusion-webui/models/Stable-diffusion
 
 # download Stable Diffusion model
 sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt
 # download Stable Diffusion ema model. Ema is required if you are going to continue training SD:
 sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4-full-ema.ckpt
 # download Reliberate model
-sudo wget 'https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16'
+sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16
 
-cd ../../
+# setup auto shutdown in 15 min
+bash ~/sd-training-base-scripts/auto_shutdown.sh
+
+cd ~/stable-diffusion-webui
 
 python ./launch.py
 
