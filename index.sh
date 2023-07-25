@@ -10,8 +10,6 @@ sudo apt update && sudo apt upgrade -y
 sudo apt-get install -y chromium-browser
 which chromium-browser
 bash ~/sd-training-base-scripts/create_chromium_shortcut.sh
-sudo apt-get install -y xdg-utils
-sudo xdg-settings set default-web-browser chromium-browser.desktop
 # install Miniconda3
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh

@@ -11,7 +11,9 @@ fi
 
 # Desktop shortcut filename and path
 SHORTCUT_FILENAME="chromium-browser.desktop"
-DESKTOP_PATH="$HOME/Desktop/$SHORTCUT_FILENAME"
+DESKTOP_PATH="~/Desktop/$SHORTCUT_FILENAME"
+
+mkdir ~/Desktop
 
 # Create the desktop shortcut file
 cat <<EOF > "$DESKTOP_PATH"
