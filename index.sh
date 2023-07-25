@@ -6,9 +6,6 @@
 cd ~
 
 sudo apt update && sudo apt upgrade -y
-# install desktop environment Xfce, requires user interaction
-sudo apt-get install -y xfce4-session xfce4-goodies
-sudo apt install -y xinit
 # install Chromium
 sudo apt-get install -y chromium-browser
 which chromium-browser
