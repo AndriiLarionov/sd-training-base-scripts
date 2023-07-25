@@ -3,7 +3,7 @@
 # Ubuntu 22.04 is required to run the script
 # GPU availability is required to run the script
 
-cd ~/sd-training-base-scripts
+cd ~
 
 sudo apt update && sudo apt upgrade -y
 # install desktop environment Xfce, requires user interaction
@@ -12,11 +12,11 @@ sudo apt install -y xinit
 # install Chromium
 sudo apt-get install -y chromium-browser
 which chromium-browser
-bash create_chromium_shortcut.sh
+bash ~/sd-training-base-scripts/create_chromium_shortcut.sh
 # install Google Remote Desktop
 sudo wget dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt install ~/chrome-remote-desktop_current_amd64.deb -y
-sudo rm chrome-remote-desktop_current_amd64.deb
+sudo rm ~/chrome-remote-desktop_current_amd64.deb
 # install Miniconda3
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
