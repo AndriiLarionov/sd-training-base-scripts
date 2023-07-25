@@ -13,7 +13,7 @@ fi
 SHORTCUT_FILENAME="chromium-browser.desktop"
 SHORTCUT_PATH="~/Desktop/$SHORTCUT_FILENAME"
 
-DESKTOP_PATH=~/Desktop
+DESKTOP_PATH="~/Desktop"
 
 if [ ! -d "$DESKTOP_PATH" ]; then
     mkdir -p "$DESKTOP_PATH"
