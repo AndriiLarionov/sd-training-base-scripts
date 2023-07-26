@@ -15,7 +15,7 @@ script_pid=0
 
 while true
 do
-    if pgrep -f "chrome.*type=renderer" > /dev/null; then
+    if pgrep -af "chrome.*type=renderer" | grep -v "pgrep" > /dev/null; then
         echo "Google Chrome is running."
 
         # if chrome is running and your script is not running, start your script
