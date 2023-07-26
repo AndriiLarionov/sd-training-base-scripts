@@ -3,14 +3,14 @@ Instruction
 # Ubuntu 22.04 is required to run the script
 # GPU availability is required to run the script
 
-1. Connect via SSH.
-2. git clone https://github.com/AndriiLarionov/sd-training-base-scripts.git
-3. bash ./sd-training-base-scripts/index.sh (it requires user interaction to apply some actions).
-4. After installation finished, press Ctrl+C to stop Automatic1111 (in the end of the script we launched it to perform required packages installation)
+1. Update password of your user:
+"sudo passwd <USERNAME>", press enter and then type twicely new password.
+2. Connect via SSH.
+3. git clone https://github.com/AndriiLarionov/sd-training-base-scripts.git
+4. bash ./sd-training-base-scripts/index.sh (it requires user interaction to apply some actions).
+5. After installation finished, press Ctrl+C to stop Automatic1111 (in the end of the script we launched it to perform required packages installation)
 and run another script:
 bash ./sd-training-base-scripts/index_xfce.sh
-5. Update password of your user:
-"sudo passwd USERNAME", press enter and then type twicely new password.
 
 6. We need to establish Google Remote Desktop connection. 
 On your machine (not the remote) go to 
