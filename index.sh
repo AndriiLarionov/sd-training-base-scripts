@@ -14,7 +14,11 @@ else
     echo "Desktop directory already exists."
 fi
 
+# allow current user to make shutdown without prompting a password
+sudo bash $HOME/sd-training-base-scripts/allow_shutdown.sh
+
 sudo apt update && sudo apt upgrade -y
+
 # install Chromium
 sudo apt-get install -y chromium-browser
 which chromium-browser

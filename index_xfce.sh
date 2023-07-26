@@ -3,7 +3,7 @@
 cd $HOME
 
 sudo apt update && sudo apt upgrade -y
-# install desktop environment Xfce, requires user interaction
+# install desktop environment Xfce
 sudo apt-get install -y xfce4-session xfce4-goodies
 sudo apt install -y xinit
 # install Google Remote Desktop
