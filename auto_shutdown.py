@@ -14,7 +14,7 @@ def main():
     while True:
         idle_time = get_idle_time()
         if idle_time > IDLE_TIME:
-            os.system('shutdown now -h')
+            os.system('sudo shutdown now -h')
         time.sleep(60)  # check every minute
 
 if __name__ == "__main__":
