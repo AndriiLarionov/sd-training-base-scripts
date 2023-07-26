@@ -2,4 +2,4 @@
 
 cd $HOME/stable-diffusion-webui
 
-python ./launch.py
+sudo python ./launch.py
