@@ -1,50 +1,24 @@
 #!/bin/bash
 
-# Function to check if the script is executed with root privileges
-check_root() {
-  if [ "$EUID" -ne 0 ]; then
-    echo "Please run this script as root or with sudo."
-    exit 1
-  fi
-}
+# Make sure the script is being run as root
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run this script as root."
+  exit 1
+fi
 
-# Function to add the current user to the 'admin' group
-add_current_user_to_admin_group() {
-  local username="$1"
-  echo "Adding user $username to 'admin' group..."
-  sudo usermod -aG admin "$username"
-}
+# The line to be added to sudoers file
+new_line="$(logname) ALL = NOPASSWD: /sbin/shutdown"
 
-# Function to configure sudo access for the 'admin' group in sudoers
-configure_sudo_access() {
-  echo "Configuring sudo access for 'admin' group..."
-  # Use visudo to safely edit the sudoers file
-  sudo visudo -f /etc/sudoers.tmp
-  # Check for any syntax errors in the temporary file
-  if [ $? -eq 0 ]; then
-    # If no syntax errors, replace the sudoers file with the temporary file
-    sudo chown root:root /etc/sudoers.tmp
-    sudo chmod 440 /etc/sudoers.tmp
-    sudo mv /etc/sudoers.tmp /etc/sudoers
-  else
-    # If there are syntax errors, exit with an error message
-    echo "Error: There were syntax errors in the sudoers file. No changes made."
-    exit 1
-  fi
-}
+# Add the line to sudoers using visudo
+echo "$new_line" >> /tmp/sudoers_tmp
+visudo -c -f /tmp/sudoers_tmp
 
-# Main script starts here
-
-# Check if the script is executed with root privileges
-check_root
-
-# Get the current username
-current_user=$(logname)
-
-# Add the current user to the 'admin' group
-add_current_user_to_admin_group "$current_user"
-
-# Configure sudo access for the 'admin' group
-configure_sudo_access
-
-echo "User $current_user has been added to the 'admin' group with sudo access."
+# Check if the syntax is valid
+if [ $? -eq 0 ]; then
+  # Install the new sudoers file
+  cat /tmp/sudoers_tmp > /etc/sudoers
+  rm /tmp/sudoers_tmp
+  echo "Line added to /etc/sudoers successfully."
+else
+  echo "Error: Invalid syntax. Line not added to /etc/sudoers."
+fi
