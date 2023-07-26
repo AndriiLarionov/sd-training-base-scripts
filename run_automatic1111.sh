@@ -1,5 +1,10 @@
 #!/bin/bash
 
-cd $HOME/stable-diffusion-webui
+# Define the shortcut function
+echo "function run_auto1111() {
+    cd \$HOME/stable-diffusion-webui \$@
+    sudo python ./launch.py \$@
+}" >> ~/.bashrc
 
-sudo python ./launch.py
+# Make the changes take effect immediately in the current shell
+source ~/.bashrc
