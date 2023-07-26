@@ -19,10 +19,14 @@ sudo bash $HOME/sd-training-base-scripts/allow_shutdown.sh
 
 sudo apt update && sudo apt upgrade -y
 
-# install Chromium
-sudo apt-get install -y chromium-browser
-which chromium-browser
-bash $HOME/sd-training-base-scripts/create_chromium_shortcut.sh
+# install Google Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
+bash $HOME/sd-training-base-scripts/create_chrome_shortcut.sh
+# set Google Chrome as default browser
+sudo apt-get install -y xdg-utils
+sudo xdg-settings set default-web-browser google-chrome.desktop
 # install Miniconda3
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh

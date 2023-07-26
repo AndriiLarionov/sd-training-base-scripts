@@ -10,6 +10,3 @@ sudo apt install -y xinit
 sudo wget dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt install ./chrome-remote-desktop_current_amd64.deb -y
 sudo rm ./chrome-remote-desktop_current_amd64.deb
-# set Chromium as default browser
-sudo apt-get install -y xdg-utils
-sudo xdg-settings set default-web-browser chromium-browser.desktop
