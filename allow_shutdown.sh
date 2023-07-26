@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Allow current user to shutdown without password
+
 # Make sure the script is being run as root
 if [ "$EUID" -ne 0 ]; then
   echo "Please run this script as root."
