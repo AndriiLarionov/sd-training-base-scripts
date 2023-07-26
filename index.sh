@@ -54,9 +54,6 @@ rm cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
 
 # download Automatic1111 (Stable Diffusion Web UI)
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
-# make a script for running Automatic1111 executable and put a symbolic link to Desktop 
-chmod +x $HOME/sd-training-base-scripts/run_automatic1111.sh
-ln -s $HOME/sd-training-base-scripts/run_automatic1111.sh $HOME/Desktop/Automatic1111.sh
 
 cd $HOME/stable-diffusion-webui/models/Stable-diffusion
 # download Stable Diffusion model
