@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_PATH=$HOME/sd-training-base-scripts/run-automatic1111.sh
+SCRIPT_PATH=$HOME/sd-training-base-scripts/run_automatic1111.sh
 
 chmod +x $SCRIPT_PATH
 
