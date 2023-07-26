@@ -31,7 +31,7 @@ do
         # if chrome is not running and your script is running, stop your script
         if $chrome_running; then
             echo "Stopping your script."
-            kill $script_pid
+            kill -INT $script_pid
             chrome_running=false
         fi
     fi
