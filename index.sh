@@ -59,7 +59,6 @@ sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve
 sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16
 
 # setup auto shutdown service
-pip install pyautogui
 bash $HOME/sd-training-base-scripts/auto_shutdown.service.sh
 
 cd $HOME/stable-diffusion-webui
