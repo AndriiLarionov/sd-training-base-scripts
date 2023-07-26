@@ -3,6 +3,8 @@ import time
 
 DEFAULT_IDLE_TIME = 15 # default idle time in minutes
 
+file_path = os.path.join(os.environ['HOME'], 'idle_time.txt')
+
 def get_idle_time():
     try:
         return float(os.popen('xprintidle').read()) / 1000
@@ -11,7 +13,7 @@ def get_idle_time():
 
 def get_idle_time_from_file():
     try:
-        with open("~/idle_time.txt", "r") as file:
+        with open(file_path, "r") as file:
             minutes = file.read().strip()
             if minutes.isdigit():
                 return int(minutes) * 60
@@ -23,9 +25,9 @@ def get_idle_time_from_file():
         return DEFAULT_IDLE_TIME * 60
 
 def write_default_idle_time():
-    with open("~/idle_time.txt", "w") as file:
+    with open(file_path, "w") as file:
         file.write(str(DEFAULT_IDLE_TIME))
-    os.system('ln -s $HOME/idle_time.txt $HOME/Desktop/idle_time.txt')
+    os.system(f'ln -s ${file_path} $HOME/Desktop/idle_time.txt')
 
 def main():
     while True:
