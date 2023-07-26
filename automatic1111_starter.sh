@@ -17,10 +17,9 @@ while true
 do
     # Checking for the main Google Chrome process
     if pgrep -af "chrome.*type=renderer" | grep -v "pgrep" > /dev/null; then
-        echo "Google Chrome is running."
-
         # if chrome is running and your script is not running, start your script
         if ! $chrome_running && ! pgrep -f $script_path > /dev/null; then
+            echo "Google Chrome is running."
             echo "Starting your script."
             sh $script_path &
             script_pid=$!
@@ -31,13 +30,13 @@ do
 
         # if chrome is not running and your script is running, stop your script
         if $chrome_running; then
-            echo "Stopping your script."
-            kill -TERM $script_pid
-            sleep 2
-            if kill -0 $script_pid 2> /dev/null; then
-                echo "Script did not stop with SIGTERM. Sending SIGKILL."
-                kill -KILL $script_pid
-            fi
+            # echo "Stopping your script."
+            # kill -TERM $script_pid
+            # sleep 2
+            # if kill -0 $script_pid 2> /dev/null; then
+            #     echo "Script did not stop with SIGTERM. Sending SIGKILL."
+            #     kill -KILL $script_pid
+            # fi
             chrome_running=false
         fi
     fi
