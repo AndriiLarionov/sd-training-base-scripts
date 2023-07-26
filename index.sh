@@ -3,13 +3,22 @@
 # Ubuntu 22.04 is required to run the script
 # GPU availability is required to run the script
 
-cd ~
+cd $HOME
+
+# ensure Desktop folder in place
+DESKTOP_PATH="$HOME/Desktop"
+if [ ! -d "$DESKTOP_PATH" ]; then
+    mkdir -p "$DESKTOP_PATH"
+    echo "Desktop directory created."
+else
+    echo "Desktop directory already exists."
+fi
 
 sudo apt update && sudo apt upgrade -y
 # install Chromium
 sudo apt-get install -y chromium-browser
 which chromium-browser
-bash ~/sd-training-base-scripts/create_chromium_shortcut.sh
+bash $HOME/sd-training-base-scripts/create_chromium_shortcut.sh
 # install Miniconda3
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
@@ -37,10 +46,11 @@ rm cuda-repo-ubuntu2204-12-2-local_12.2.0-535.54.03-1_amd64.deb
 
 # download Automatic1111 (Stable Diffusion Web UI)
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
-ln -s ~/sd-training-base-scripts/run_automatic1111.sh ~/Desktop/Automatic1111.sh
+# make a script for running Automatic1111 executable and put a symbolic link to Desktop 
+chmod +x $HOME/sd-training-base-scripts/run_automatic1111.sh
+ln -s $HOME/sd-training-base-scripts/run_automatic1111.sh $HOME/Desktop/Automatic1111.sh
 
-cd ~/stable-diffusion-webui/models/Stable-diffusion
-
+cd $HOME/stable-diffusion-webui/models/Stable-diffusion
 # download Stable Diffusion model
 sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt
 # download Stable Diffusion ema model. Ema is required if you are going to continue training SD:
@@ -48,10 +58,10 @@ sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve
 # download Reliberate model
 sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16
 
-# setup auto shutdown in 15 min
-bash ~/sd-training-base-scripts/auto_shutdown.sh
+# setup auto shutdown in 1 min
+bash $HOME/sd-training-base-scripts/auto_shutdown.sh
 
-cd ~/stable-diffusion-webui
+cd $HOME/stable-diffusion-webui
 
 python ./launch.py
 

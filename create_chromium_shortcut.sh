@@ -13,15 +13,6 @@ fi
 SHORTCUT_FILENAME="chromium-browser.desktop"
 SHORTCUT_PATH="$HOME/Desktop/$SHORTCUT_FILENAME"
 
-DESKTOP_PATH="$HOME/Desktop"
-
-if [ ! -d "$DESKTOP_PATH" ]; then
-    mkdir -p "$DESKTOP_PATH"
-    echo "Desktop directory created."
-else
-    echo "Desktop directory already exists."
-fi
-
 # Create the desktop shortcut file
 cat <<EOF > "$SHORTCUT_PATH"
 [Desktop Entry]
