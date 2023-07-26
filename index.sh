@@ -60,6 +60,9 @@ sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/8457
 
 # setup auto shutdown in 1 min
 bash $HOME/sd-training-base-scripts/auto_shutdown.sh
+sudo apt-get install gedit -y
+chmod +x $HOME/sd-training-base-scripts/edit_auto_shutdown.sh
+ln -s $HOME/sd-training-base-scripts/edit_auto_shutdown.sh $HOME/Desktop/edit_auto_shutdown.sh
 
 cd $HOME/stable-diffusion-webui
 
