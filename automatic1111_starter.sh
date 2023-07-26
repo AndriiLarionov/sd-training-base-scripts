@@ -26,10 +26,9 @@ do
             chrome_running=true
         fi
     else
-        echo "Google Chrome is not running."
-
         # if chrome is not running and your script is running, stop your script
         if $chrome_running; then
+            echo "Google Chrome is not running."
             # echo "Stopping your script."
             # kill -TERM $script_pid
             # sleep 2
