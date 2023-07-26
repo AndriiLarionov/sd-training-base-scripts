@@ -62,8 +62,9 @@ sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve
 # download Reliberate model
 sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16
 
-# setup auto shutdown service
-# bash $HOME/sd-training-base-scripts/auto_shutdown.service.sh
+# setup auto shutdown
+sudo apt-get install -y xprintidle
+bash $HOME/sd-training-base-scripts/add_auto_shutdown_to_autostart.sh
 
 cd $HOME/stable-diffusion-webui
 

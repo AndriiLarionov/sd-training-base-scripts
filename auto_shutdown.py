@@ -1,8 +1,7 @@
 import os
 import time
-from datetime import datetime, timedelta
 
-IDLE_TIME = 1 * 60  # idle time in seconds
+DEFAULT_IDLE_TIME = 15 # default idle time in minutes
 
 def get_idle_time():
     try:
@@ -10,8 +9,26 @@ def get_idle_time():
     except:
         return 0
 
+def get_idle_time_from_file():
+    try:
+        with open("idle_time.txt", "r") as file:
+            minutes = file.read().strip()
+            if minutes.isdigit():
+                return int(minutes) * 60
+            else:
+                write_default_idle_time()
+                return DEFAULT_IDLE_TIME * 60
+    except (FileNotFoundError, ValueError):
+        write_default_idle_time()
+        return DEFAULT_IDLE_TIME * 60
+
+def write_default_idle_time():
+    with open("idle_time.txt", "w") as file:
+        file.write(str(DEFAULT_IDLE_TIME))
+
 def main():
     while True:
+        IDLE_TIME = get_idle_time_from_file()  # idle time in seconds
         idle_time = get_idle_time()
         if idle_time > IDLE_TIME:
             os.system('sudo shutdown now -h')
