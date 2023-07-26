@@ -8,7 +8,7 @@ echo "[Desktop Entry]
 Type=Application
 Terminal=false
 Name=IdleTime
-Exec=gedit $HOME/idle_time.txt
+Exec=mousepad $HOME/idle_time.txt
 Icon=text-editor" > $SHORTCUT_PATH
 
 # make the shortcut executable
