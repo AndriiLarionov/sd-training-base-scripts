@@ -5,7 +5,7 @@
 # - if it is closed, Automatic1111 is killed
 
 # script to be executed
-SCRIPT_PATH=$HOME/sd-training-base-scripts/run_automatic1111.sh
+script_path="/path/to/your/script.sh"
 
 # initially chrome is not running
 chrome_running=false
@@ -15,13 +15,14 @@ script_pid=0
 
 while true
 do
+    # Checking for the main Google Chrome process
     if pgrep -af "chrome.*type=renderer" | grep -v "pgrep" > /dev/null; then
         echo "Google Chrome is running."
 
         # if chrome is running and your script is not running, start your script
-        if ! $chrome_running && ! pgrep -f $SCRIPT_PATH > /dev/null; then
+        if ! $chrome_running && ! pgrep -f $script_path > /dev/null; then
             echo "Starting your script."
-            sh $SCRIPT_PATH &
+            sh $script_path &
             script_pid=$!
             chrome_running=true
         fi
@@ -31,7 +32,12 @@ do
         # if chrome is not running and your script is running, stop your script
         if $chrome_running; then
             echo "Stopping your script."
-            kill -INT $script_pid
+            kill -TERM $script_pid
+            sleep 2
+            if kill -0 $script_pid 2> /dev/null; then
+                echo "Script did not stop with SIGTERM. Sending SIGKILL."
+                kill -KILL $script_pid
+            fi
             chrome_running=false
         fi
     fi
