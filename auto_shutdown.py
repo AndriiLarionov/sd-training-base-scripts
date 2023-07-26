@@ -30,7 +30,9 @@ def main():
     while True:
         IDLE_TIME = get_idle_time_from_file()  # idle time in seconds
         idle_time = get_idle_time()
+        print (idle_time, IDLE_TIME)
         if idle_time > IDLE_TIME:
+            print('shutting down...')
             os.system('sudo shutdown now -h')
         time.sleep(60)  # check every minute
 
