@@ -62,6 +62,8 @@ sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve
 sudo wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4-full-ema.ckpt
 # download Reliberate model
 sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16
+# download Deliberate model
+sudo wget -O deliberate.safetensors https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor&size=full&fp=fp16
 
 # setup auto shutdown
 sudo apt-get install -y xprintidle
