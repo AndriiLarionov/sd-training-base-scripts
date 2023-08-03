@@ -4,7 +4,7 @@ Instruction
 # GPU availability is required to run the script
 
 1. Update password of your user:
-"sudo passwd <USERNAME>", press enter and then type twicely new password.
+"sudo passwd $USER", press enter and then type twicely new password.
 2. Connect via SSH.
 3. git clone https://github.com/AndriiLarionov/sd-training-base-scripts.git
 4. bash ./sd-training-base-scripts/index.sh (it requires user interaction to apply some actions).
