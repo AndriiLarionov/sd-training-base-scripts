@@ -11,6 +11,7 @@ sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/8457
 # download Deliberate model
 sudo wget -O deliberate.safetensors https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor&size=full&fp=fp16
 
-cd $HOME/stable-diffusion-webui/models/Lora
-# download sxzLuma Lora model
-sudo wget -O sxzLuma_09XVAE.safetensors https://civitai.com/api/download/models/127416?type=Model&format=SafeTensor&size=pruned&fp=fp16
+# mkdir $HOME/stable-diffusion-webui/models/Lora
+# cd $HOME/stable-diffusion-webui/models/Lora
+# # download sxzLuma Lora model
+# sudo wget -O sxzLuma_09XVAE.safetensors https://civitai.com/api/download/models/127416?type=Model&format=SafeTensor&size=pruned&fp=fp16
