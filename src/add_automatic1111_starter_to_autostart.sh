@@ -13,7 +13,7 @@ else
     echo "$CONFIG_PATH directory already exists."
 fi
 
-cat > $CONFIG_PATH/autostart/auto_shutdown.desktop << EOF
+cat > $CONFIG_PATH/auto_shutdown.desktop << EOF
 [Desktop Entry]
 Type=Application
 Exec=python3 $SCRIPT_PATH
