@@ -20,20 +20,20 @@ sudo bash $HOME/sd-training-base-scripts/src/allow_shutdown.sh
 sudo apt update && sudo apt upgrade -y
 
 # install Google Chrome
-sudo bash $HOME/sd-training-base-scripts/src/install_chrome.sh
+bash $HOME/sd-training-base-scripts/src/install_chrome.sh
 # install Python
-sudo bash $HOME/sd-training-base-scripts/src/install_python.sh
+bash $HOME/sd-training-base-scripts/src/install_python.sh
 # install CUDA
-sudo bash $HOME/sd-training-base-scripts/src/install_cuda.sh
+bash $HOME/sd-training-base-scripts/src/install_cuda.sh
 # setup Automatic1111
-sudo bash $HOME/sd-training-base-scripts/src/install_automatic1111.sh
+bash $HOME/sd-training-base-scripts/src/install_automatic1111.sh
 
 # setup auto shutdown
 sudo apt-get install -y xprintidle
 bash $HOME/sd-training-base-scripts/src/add_auto_shutdown_to_autostart.sh
 
-# setup Xfce desktop environment and Google Remote Desktop
-bash $HOME/sd-training-base-scripts/src/install_xfce.sh
+# setup Xfce desktop environment and Xrdp
+# bash $HOME/sd-training-base-scripts/src/install_xfce.sh
 
 cd $HOME/stable-diffusion-webui
 
