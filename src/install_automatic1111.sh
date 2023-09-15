@@ -20,7 +20,7 @@ cd $HOME/stable-diffusion-webui/models/Stable-diffusion
 # sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16
 sudo wget -O Deliberate.safetensors https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor&size=full&fp=fp16
 sudo wget -O DreamShaper.safetensors https://civitai.com/api/download/models/128713?type=Model&format=SafeTensor&size=pruned&fp=fp16
-sudo wget -O ReV_Animated.safetensors https://civitai.com/api/download/models/46846?type=Model&format=SafeTensor&size=full&fp=fp32
+sudo wget -O https://civitai.com/api/download/models/46846?type=Model&format=SafeTensor&size=full&fp=fp32
 
 # download XL models
 sudo wget -O SDXL.safetensors https://civitai.com/api/download/models/128078?type=Model&format=SafeTensor&size=full&fp=fp32
@@ -42,5 +42,5 @@ sudo wget -O PixelArtXL.safetensors https://civitai.com/api/download/models/1359
 sudo wget -O xl_more_art_full.safetensors https://civitai.com/api/download/models/152309?type=Model&format=SafeTensor
 sudo wget -O Isometric_Cutaway.safetensors https://civitai.com/api/download/models/153780?type=Model&format=SafeTensor
 sudo wget -O LeLo_LEGO_XL.safetensors https://civitai.com/api/download/models/157536?type=Model&format=SafeTensor
-sudo wget -O Schmanzy_SDXL.safetensors https://civitai.com/api/download/models/132359?type=Model&format=SafeTensor
+sudo wget -O https://civitai.com/api/download/models/132359?type=Model&format=SafeTensor
 sudo wget -O ContinousLineXL.safetensors https://civitai.com/api/download/models/139001?type=Model&format=SafeTensor

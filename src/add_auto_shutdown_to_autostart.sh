@@ -4,8 +4,10 @@ SCRIPT_PATH=$HOME/sd-training-base-scripts/src/auto_shutdown.py
 
 chmod +x $SCRIPT_PATH
 
+cd $HOME
+
 # establish .config/autostart directory 
-CONFIG_PATH="~/.config/autostart"
+CONFIG_PATH=".config/autostart"
 if [ ! -d "$CONFIG_PATH" ]; then
     mkdir -p "$CONFIG_PATH"
     echo "$CONFIG_PATH directory created."
