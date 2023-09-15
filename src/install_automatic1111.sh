@@ -16,21 +16,18 @@ git clone https://github.com/richrobber2/canvas-zoom
 # install models
 cd $HOME/stable-diffusion-webui/models/Stable-diffusion
 
-sleep 10
 # download 1.5 models
 # sudo wget -O reliberate.safetensors https://civitai.com/api/download/models/84576?type=Model&format=SafeTensor&size=full&fp=fp16
 sudo wget -O Deliberate.safetensors https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor&size=full&fp=fp16
 sudo wget -O DreamShaper.safetensors https://civitai.com/api/download/models/128713?type=Model&format=SafeTensor&size=pruned&fp=fp16
 sudo wget -O ReV_Animated.safetensors https://civitai.com/api/download/models/46846?type=Model&format=SafeTensor&size=full&fp=fp32
 
-sleep 60
 # download XL models
 sudo wget -O SDXL.safetensors https://civitai.com/api/download/models/128078?type=Model&format=SafeTensor&size=full&fp=fp32
 sudo wget -O SDVN7_NijiStyleXL.safetensors https://civitai.com/api/download/models/155870?type=Model&format=SafeTensor&size=full&fp=fp16
 sudo wget -O DynaVision_XL.safetensors https://civitai.com/api/download/models/148259?type=Model&format=SafeTensor&size=pruned&fp=fp16
 sudo wget -O Copax_TimeLessXL.safetensors https://civitai.com/api/download/models/150238?type=Model&format=SafeTensor&size=pruned&fp=fp16
 
-sleep 60
 # establish Lora directory
 LORA_PATH="$HOME/stable-diffusion-webui/models/Lora"
 if [ ! -d "$LORA_PATH" ]; then

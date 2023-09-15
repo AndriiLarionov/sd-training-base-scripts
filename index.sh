@@ -23,16 +23,11 @@ sudo apt update && sudo apt upgrade -y
 bash $HOME/sd-training-base-scripts/src/install_chrome.sh
 # install Python
 bash $HOME/sd-training-base-scripts/src/install_python.sh
-
-sleep 60
 # install CUDA
 bash $HOME/sd-training-base-scripts/src/install_cuda.sh
-
-sleep 60
 # setup Automatic1111
 bash $HOME/sd-training-base-scripts/src/install_automatic1111.sh
 
-sleep 30
 # setup auto shutdown
 sudo apt-get install -y xprintidle
 bash $HOME/sd-training-base-scripts/src/add_auto_shutdown_to_autostart.sh
