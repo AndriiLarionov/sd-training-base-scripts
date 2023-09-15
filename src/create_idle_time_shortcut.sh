@@ -3,6 +3,8 @@
 # define the path for the shortcut
 SHORTCUT_PATH="$HOME/Desktop/idle_time.desktop"
 
+sudo apt install mousepad -y
+
 # create the shortcut with the required details
 echo "[Desktop Entry]
 Type=Application
