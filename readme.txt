@@ -3,9 +3,9 @@ Instruction
 # Ubuntu 22.04 is required to run the script
 # GPU availability is required to run the script
 
-1. Update password of your user:
+1. Connect via SSH.
+2. Update password of your user:
 "sudo passwd $USER", press enter and then type twicely new password.
-2. Connect via SSH.
 3. git clone https://github.com/AndriiLarionov/sd-training-base-scripts.git
 4. bash ./sd-training-base-scripts/index.sh (it requires user interaction to apply some actions).
 5. After installation finished, press Ctrl+C to stop Automatic1111 (in the end of the script we launched it to perform required packages installation)
