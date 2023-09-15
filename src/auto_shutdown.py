@@ -27,7 +27,7 @@ def get_idle_time_from_file():
 def write_default_idle_time():
     with open(file_path, "w") as file:
         file.write(str(DEFAULT_IDLE_TIME))
-    os.system('bash $HOME/sd-training-base-scripts/create_idle_time_shortcut.sh')
+    os.system('bash $HOME/sd-training-base-scripts/src/create_idle_time_shortcut.sh')
 
 def main():
     while True:

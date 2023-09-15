@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_PATH=$HOME/sd-training-base-scripts/auto_shutdown.py
+SCRIPT_PATH=$HOME/sd-training-base-scripts/src/auto_shutdown.py
 
 chmod +x $SCRIPT_PATH
 

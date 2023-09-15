@@ -5,7 +5,7 @@
 # - if it is closed, Automatic1111 is killed
 
 # script to be executed
-script_path=$HOME/sd-training-base-scripts/run_automatic1111.sh
+script_path=$HOME/sd-training-base-scripts/src/run_automatic1111.sh
 
 # initially chrome is not running
 chrome_running=false
