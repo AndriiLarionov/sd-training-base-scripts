@@ -35,8 +35,7 @@ bash $HOME/sd-training-base-scripts/src/add_auto_shutdown_to_autostart.sh
 # setup Xfce desktop environment and Xrdp
 # bash $HOME/sd-training-base-scripts/src/install_xfce.sh
 
-cd $HOME/stable-diffusion-webui
-
-python ./launch.py
+# cd $HOME/stable-diffusion-webui
+# python ./launch.py
 
 # open browser and go to http://127.0.0.1:7860
