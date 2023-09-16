@@ -10,6 +10,6 @@ rm -rf ~/miniconda3/miniconda.sh
 source ~/miniconda3/bin/activate
 
 conda create -n sd python=3.10.6 -y
-conda activate sd
+# conda activate sd
 pip install fastapi==0.90.1
 python -m pip install --upgrade pip
